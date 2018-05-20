@@ -49,6 +49,7 @@ class PhysicalButtonsPlugin(octoprint.plugin.StartupPlugin,
 			self._logger.info("%s button setup on GPIO [%s]..."%(str(i), i))
 			GPIO.setup(i, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
+		self.setup_gpio()
 		#if self.PIN_STOP != -1:
 		#	self._logger.info("Stop button setup on GPIO [%s]..."%self.PIN_STOP)
 		#	GPIO.setup(self.PIN_STOP, GPIO.IN, pull_up_down=GPIO.PUD_UP)
@@ -177,6 +178,42 @@ class PhysicalButtonsPlugin(octoprint.plugin.StartupPlugin,
 			else:
 				self._printer.commands('G91')
 				self._printer.commands('G1 X-10 F3600')
+
+
+		elif channel == self.PIN_Y_PLUS:
+			self._logger.debug("Y+ button pushed")
+			if self._printer.is_printing() or self._printer.is_paused():
+				pass
+			else:
+				self._printer.commands('G91')
+				self._printer.commands('G1 Y10 F3600')
+
+
+		elif channel == self.PIN_Y_MINUS:
+			self._logger.debug("Y- button pushed")
+			if self._printer.is_printing() or self._printer.is_paused():
+				pass
+			else:
+				self._printer.commands('G91')
+				self._printer.commands('G1 Y-10 F3600')
+
+
+		elif channel == self.PIN_Z_PLUS:
+			self._logger.debug("Z+ button pushed")
+			if self._printer.is_printing() or self._printer.is_paused():
+				pass
+			else:
+				self._printer.commands('G91')
+				self._printer.commands('G1 Z10 F3600')
+
+
+		elif channel == self.PIN_Z_MINUS:
+			self._logger.debug("Z- button pushed")
+			if self._printer.is_printing() or self._printer.is_paused():
+				pass
+			else:
+				self._printer.commands('G91')
+				self._printer.commands('G1 Z-10 F3600')
 
 	def get_version(self):
 		return self._plugin_version
