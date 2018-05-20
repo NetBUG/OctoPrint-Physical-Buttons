@@ -1,0 +1,61 @@
+accessControl:
+  salt: YtEkFBNxd4gi0co8fB95lF48xDqfWGTN
+api:
+  key: CB7D842FB5ED48D99FCB0F7DD7B538E9
+plugins:
+  announcements:
+    _config_version: 1
+    channels:
+      _blog:
+        read_until: 1522320900
+      _important:
+        read_until: 1521111600
+      _octopi:
+        read_until: 1525252500
+      _plugins:
+        read_until: 1525392000
+      _releases:
+        read_until: 1523631300
+  cura:
+    cura_engine: /usr/local/bin/cura_engine
+  discovery:
+    publicPort: 80
+    upnpUuid: d1ffc374-38bb-46c5-bebb-2073575c9a85
+  octoprint_physicalbuttons:
+    bounce: 400
+    pause: 40
+    preheat: 36
+    resume: 32
+    stop: 37
+    xminus: 24
+    xplus: 23
+    yminus: 35
+    yplus: 26
+    zminus: 22
+    zplus: 21
+  softwareupdate:
+    _config_version: 6
+printerProfiles:
+  default: _default
+serial:
+  autoconnect: true
+  baudrate: 115200
+  port: /dev/ttyACM0
+server:
+  commands:
+    serverRestartCommand: sudo service octoprint restart
+    systemRestartCommand: sudo shutdown -r now
+    systemShutdownCommand: sudo shutdown -h now
+  firstRun: false
+  onlineCheck:
+    enabled: true
+  pluginBlacklist:
+    enabled: true
+  secretKey: KJs9SdkjXGENlLrcJlmEn8hh1CbWAKSZ
+  seenWizards:
+    corewizard: 3
+    cura: null
+webcam:
+  ffmpeg: /usr/bin/avconv
+  snapshot: http://127.0.0.1:8080/?action=snapshot
+  stream: /webcam/?action=stream
